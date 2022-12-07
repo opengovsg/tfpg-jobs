@@ -121,7 +121,7 @@ export const schema: Schema<ConfigSchema> = {
     name: {
       doc: 'Name of session ID cookie to set in response',
       env: 'SESSION_NAME',
-      default: 'ts-template.sid',
+      default: 'tfpg-jobs.sid',
       format: String,
     },
     secret: {

@@ -5,7 +5,7 @@ import PackageInfo from '../package.json'
 export const StorybookTheme = {
   manager: create({
     base: 'light',
-    brandTitle: `ts-template v${PackageInfo.version}`,
+    brandTitle: `Tech for Public Good - Job Directory v${PackageInfo.version}`,
     // UI
     appBg: '#f6f7fc', // primary.100,
     appBorderColor: '#DADCE3',

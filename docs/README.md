@@ -1,6 +1,6 @@
-# Documentation for ts-template
+# Documentation for tfpg-jobs
 
-This contains documentation for ts-template. It may also be used to 
+This contains documentation for tfpg-jobs. It may also be used to 
 hold documentation for the application, including design documents,
 though the established practice is to have those in Notion.
 

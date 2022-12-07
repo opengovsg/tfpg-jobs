@@ -23,7 +23,7 @@ Register for the following services:
   [ndjson-formatted](https://ndjson.org). This makes it very
   convenient for Datadog (and other tools) to parse and index
   your logs.  
-  ts-template uses pino, which natively emits such logs.
+  tfpg-jobs uses pino, which natively emits such logs.
 
 - Generate an API key for your application from Datadog
 

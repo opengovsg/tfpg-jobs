@@ -74,24 +74,24 @@ the environment it is in, answer the prompts as shown in the example
 below:
 
 ```
-$ fly launch --org ts-template-staging
+$ fly launch --org tfpg-jobs-staging
 An existing fly.toml file was found for app <APP_NAME>
 ? Would you like to copy its configuration to the new app? Yes
-Creating app in /opengovsg/ts-template
+Creating app in /opengovsg/tfpg-jobs
 Scanning source code
 Detected a Dockerfile app
-? App Name (leave blank to use an auto-generated name): ts-template-staging
+? App Name (leave blank to use an auto-generated name): tfpg-jobs-staging
 ? Select region: sin (Singapore)
-Created app ts-template-staging in organization ts-template-staging
+Created app tfpg-jobs-staging in organization tfpg-jobs-staging
 Wrote config file fly.toml
 ? Would you like to set up a Postgresql database now? Yes
 For pricing information visit: https://fly.io/docs/about/pricing/#postgresql-clusters
 ? Select configuration: Development - Single node, 1x shared CPU, 256MB RAM, 1GB disk
-Creating postgres cluster ts-template-staging-db in organization ts-template-staging
-Postgres cluster ts-template-staging-db created
+Creating postgres cluster tfpg-jobs-staging-db in organization tfpg-jobs-staging
+Postgres cluster tfpg-jobs-staging-db created
   Username:    postgres
   Password:    <redacted-value-here>
-  Hostname:    ts-template-staging-db.internal
+  Hostname:    tfpg-jobs-staging-db.internal
   Proxy Port:  5432
   PG Port: 5433
 Save your credentials in a secure place -- you won't be able to see them again!
@@ -102,17 +102,17 @@ Monitoring Deployment
 --> v0 deployed successfully
 
 Connect to postgres
-Any app within the ts-template-staging organization can connect to postgres using the above credentials and the hostname "ts-template-staging-db.internal."
-For example: postgres://postgres:<redacted-value-here>@ts-template-staging-db.internal:5432
+Any app within the tfpg-jobs-staging organization can connect to postgres using the above credentials and the hostname "tfpg-jobs-staging-db.internal."
+For example: postgres://postgres:<redacted-value-here>@tfpg-jobs-staging-db.internal:5432
 
 Now that you've set up postgres, here's what you need to understand: https://fly.io/docs/reference/postgres-whats-next/
 WARN The running flyctl agent (v0.0.395) is older than the current flyctl (v0.0.398).
 WARN The out-of-date agent will be shut down along with existing wireguard connections. The new agent will start automatically as needed.
 
-Postgres cluster ts-template-staging-db is now attached to ts-template-staging
-The following secret was added to ts-template-staging:
-  DATABASE_URL=postgres://ts_template_staging:<another-redacted-value-here>@top2.nearest.of.ts-template-staging-db.internal:5432/ts_template_staging
-Postgres cluster ts-template-staging-db is now attached to ts-template-staging
+Postgres cluster tfpg-jobs-staging-db is now attached to tfpg-jobs-staging
+The following secret was added to tfpg-jobs-staging:
+  DATABASE_URL=postgres://ts_template_staging:<another-redacted-value-here>@top2.nearest.of.tfpg-jobs-staging-db.internal:5432/ts_template_staging
+Postgres cluster tfpg-jobs-staging-db is now attached to tfpg-jobs-staging
 ? Would you like to deploy now? No
 Your app is ready. Deploy with `flyctl deploy`
 ```
@@ -129,10 +129,10 @@ Add the parameters using [flyctl secrets](https://fly.io/docs/reference/secrets/
 as follows:
 
 ```
-$ flyctl secrets import --app ts-template-staging
+$ flyctl secrets import --app tfpg-jobs-staging
 DB_NAME=ts_template_staging
 DB_USERNAME=ts_template_staging
-DB_HOST=top2.nearest.of.ts-template-staging-db.internal
+DB_HOST=top2.nearest.of.tfpg-jobs-staging-db.internal
 DB_PASSWORD=<another-redacted-value-here>
 NODE_ENV=staging
 <Press the Control and D keys; this finishes user input>

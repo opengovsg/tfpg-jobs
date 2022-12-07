@@ -7,10 +7,10 @@ to build new products
 
 ```
 # Clone this repo if you're trying this out, or start a new repo with
-# ts-template as a template and clone that if starting a new product
+# tfpg-jobs as a template and clone that if starting a new product
 
-git clone git@github.com:opengovsg/ts-template
-cd ts-template
+git clone git@github.com:opengovsg/tfpg-jobs
+cd tfpg-jobs
 npm install
 npm run dev
 ```
@@ -41,7 +41,7 @@ You will need the following:
 ### Getting and Preparing the Code in Your Computer
 
 - Create a [new repository](https://github.com/new), using
-  opengovsg/ts-template as a template
+  opengovsg/tfpg-jobs as a template
   - From this page, click `Use this template`
   ![Use this template](docs/images/use-this-template.png)
   - Choose a name for your new repository
