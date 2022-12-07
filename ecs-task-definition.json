@@ -1,0 +1,145 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "app-server",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "TZ",
+          "value": "Asia/Singapore"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "DD_SOURCE",
+          "value": "nodejs"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "DB_HOST",
+          "valueFrom": "tfpg-jobs-stg-rds-host"
+        },
+        {
+          "name": "DB_NAME",
+          "valueFrom": "tfpg-jobs-stg-rds-database"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "tfpg-jobs-stg-rds-password"
+        },
+        {
+          "name": "DB_USERNAME",
+          "valueFrom": "tfpg-jobs-stg-rds-username"
+        },
+        {
+          "name": "SESSION_SECRET",
+          "valueFrom": "tfpg-jobs-stg-session-secret"
+        },
+        {
+          "name": "DD_API_KEY",
+          "valueFrom": "tfpg-jobs-stg-dd-api-key"
+        },
+        {
+          "name": "DD_SERVICE",
+          "valueFrom": "tfpg-jobs-stg-dd-service"
+        },
+        {
+          "name": "DD_TAGS",
+          "valueFrom": "tfpg-jobs-stg-dd-tags"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "tfpg-jobs-stg/ecs/application-server",
+          "awslogs-region": "ap-southeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    {
+      "name": "dd-agent",
+      "image": "public.ecr.aws/datadog/agent:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 8126,
+          "hostPort": 8126,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": false,
+      "environment": [
+        {
+          "name": "TZ",
+          "value": "Asia/Singapore"
+        },
+        {
+          "name": "DD_APM_NON_LOCAL_TRAFFIC",
+          "value": "true"
+        },
+        {
+          "name": "ECS_FARGATE",
+          "value": "true"
+        },
+        {
+          "name": "DD_APM_ENABLED",
+          "value": "true"
+        },
+        {
+          "name": "DD_SITE",
+          "value": "datadoghq.com"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "DD_API_KEY",
+          "valueFrom": "tfpg-jobs-stg-dd-api-key"
+        },
+        {
+          "name": "DD_SERVICE",
+          "valueFrom": "tfpg-jobs-stg-dd-service"
+        },
+        {
+          "name": "DD_TAGS",
+          "valueFrom": "tfpg-jobs-stg-dd-tags"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "tfpg-jobs-stg/ecs/dd-agent",
+          "awslogs-region": "ap-southeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ],
+  "family": "application-server",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "runtimePlatform": {
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": ["FARGATE"],
+  "taskRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/tfpg-jobs-stg-ecs-task-role",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/tfpg-jobs-stg-ecs-task-exec-role",
+  "cpu": "512",
+  "memory": "1024"
+}
