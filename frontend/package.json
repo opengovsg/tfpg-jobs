@@ -5,7 +5,7 @@
   "proxy": "http://localhost:8080/",
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@tanstack/react-query": "^4.24.6",
     "framer-motion": "^7.10.2",
