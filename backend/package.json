@@ -38,7 +38,7 @@
     "@nestjs/serve-static": "^3.0.1",
     "@nestjs/terminus": "^9.2.2",
     "@nestjs/typeorm": "^9.0.1",
-    "aws-sdk": "^2.1359.0",
+    "aws-sdk": "^2.1361.0",
     "connect-typeorm": "^2.0.0",
     "convict": "^6.2.4",
     "dd-trace": "^3.15.0",
